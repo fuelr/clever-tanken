@@ -1,6 +1,6 @@
 {
-  "name": "fuelr-clever-tanken",
-  "description": "clever-tanken.de reverse engineered JSON API",
+  "name": "@fuelr/clever-tanken",
+  "description": "clever-tanken.de reverse engineered web-scrape API",
   "keywords": [
     "clever-tanken",
     "typescript",
