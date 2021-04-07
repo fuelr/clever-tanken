@@ -16,10 +16,3 @@ export enum FuelTypes {
   "AdBlue (pump)" = 261,
   "LNG" = 273,
 }
-
-export interface RadialSearchArg {
-  lat: number
-  lng: number
-  type: FuelTypes
-  rad?: number
-}

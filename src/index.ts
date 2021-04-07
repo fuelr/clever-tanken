@@ -1,6 +1,6 @@
-import { RadialSearchArg } from "../types/index"
-import { RadialSearchParams } from "../types/API"
-import { SearchListItem } from "../types/parse"
+import type { RadialSearchArg } from "../types/index.d"
+import type { RadialSearchParams } from "../types/API"
+import type { SearchListItem } from "../types/parse"
 
 import got from "got"
 import parse from "./parse"

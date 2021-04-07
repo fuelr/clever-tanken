@@ -1,7 +1,7 @@
 import test, { ExecutionContext } from "ava"
 
 import CleverTanken from "../src"
-import { FuelTypes } from "../types"
+import { FuelTypes } from "../types/fuelTypes"
 import { SearchListItem } from "../types/parse"
 
 const { lat, lng } = { lat: 52.518583, lng: 13.401709 }
