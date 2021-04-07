@@ -7,7 +7,7 @@
     "api",
     "reverse-engineered"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "license": "MIT",
   "author": "vaaski <admin@vaa.ski>",
