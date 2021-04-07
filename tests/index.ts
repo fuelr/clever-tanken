@@ -1,0 +1,51 @@
+import test from "ava"
+
+import CleverTanken from "../src"
+import { FuelTypes } from "../types"
+
+const { lat, lng } = { lat: 52.518583, lng: 13.401709 }
+
+test("test for e5 in berlin", async t => {
+  const ct = new CleverTanken()
+
+  const data = await ct.radialSearch({
+    lat,
+    lng,
+    type: FuelTypes["Super E5"],
+  })
+
+  const [station] = data
+
+  t.truthy(data.length)
+  t.truthy(station.city)
+  t.truthy(station.detailHref)
+  t.truthy(station.dist)
+  t.truthy(station.id)
+  t.truthy(station.name)
+  t.truthy(station.street)
+  t.truthy(station.additional)
+  t.assert(station.price === null || station.price)
+})
+
+test("test for e5 in berlin with given radius", async t => {
+  const ct = new CleverTanken()
+
+  const data = await ct.radialSearch({
+    lat,
+    lng,
+    rad: 10,
+    type: FuelTypes["Super E5"],
+  })
+
+  const [station] = data
+
+  t.truthy(data.length)
+  t.truthy(station.city)
+  t.truthy(station.detailHref)
+  t.truthy(station.dist)
+  t.truthy(station.id)
+  t.truthy(station.name)
+  t.truthy(station.street)
+  t.truthy(station.additional)
+  t.assert(station.price === null || station.price)
+})

@@ -1,4 +1,4 @@
-import { RadialSearchArg, FuelTypes } from "../types/index"
+import { RadialSearchArg } from "../types/index"
 import { RadialSearchParams } from "../types/API"
 import { SearchListItem } from "../types/parse"
 
@@ -22,14 +22,3 @@ export default class CleverTanken {
     return parse.searchList(response.body)
   }
 }
-
-!(async () => {
-  const ct = new CleverTanken()
-  const data = await ct.radialSearch({
-    lat: 52.518583,
-    lng: 13.401709,
-    type: FuelTypes["Autogas"],
-  })
-
-  console.log(data.length)
-})()

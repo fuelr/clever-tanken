@@ -4,9 +4,11 @@ import { at } from "./util"
 
 import type { SearchListItem } from "../types/parse"
 
-const trim = (s: string) => s.replace(/\s{2,}|\n/g, " ").replace(/^\s|\s$/g, "")
-const parsePrice = (s: string) => (s.match(/^-\.-+$/) ? null : parseFloat(s))
-const detailHrefToID = (s: string) => at(s.split("/"), -1)
+export const trim = (s: string): string => s.replace(/\s{2,}|\n/g, " ").replace(/^\s|\s$/g, "")
+export const parsePrice = (s: string): number | null => {
+  return s.match(/^-\.-+$/) ? null : parseFloat(s)
+}
+export const detailHrefToID = (s: string): string | null => at(s.split("/"), -1)
 
 export default {
   searchList(html: string): Array<SearchListItem> {
@@ -23,7 +25,11 @@ export default {
         city: get(selectors.CITY),
         detailHref: el.attr("href"),
         dist: parseFloat(get(selectors.DIST)),
-        id: parseInt(detailHrefToID(el.attr("href") || "") || ""),
+        id: parseInt(
+          detailHrefToID(
+            el.attr("href") /* istanbul ignore next */ || ""
+          ) /* istanbul ignore next */ || ""
+        ),
         name: get(selectors.NAME),
         price: parsePrice(get(selectors.PRICE)),
         street: get(selectors.STREET),
