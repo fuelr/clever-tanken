@@ -8,6 +8,14 @@ import parse from "./parse"
 export default class CleverTanken {
   private baseURL = "https://clever-tanken.de"
 
+  /**
+   * Search for fuel stations by providing coordinates and radius.
+   * @param opt options
+   * @param opt.lat latitude
+   * @param opt.lon longitude
+   * @param opt.type
+   * @returns SearchListItem[]
+   */
   radialSearch = async (opt: RadialSearchArg): Promise<SearchListItem[]> => {
     const searchParams: RadialSearchParams = {
       lat: opt.lat,
